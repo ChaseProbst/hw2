@@ -41,5 +41,12 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
+  
+  def sort
+    @movie = Movie.create!(movie_params)
+    @movie.select('title')
+    flash[:notice] = "#{@movie.title} was successfully created."
+    redirect_to movies_path
+  end
 
 end
