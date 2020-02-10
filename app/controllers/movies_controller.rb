@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    @movies = Movie.all
+    #@movies = Movie.all
     if params[:sort].nil? && params[:ratings].nil?
       return @movies = Movie.all
     elsif params[:ratings].nil?
