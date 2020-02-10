@@ -13,7 +13,17 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = ['G','PG','PG-13','R']
     @movies = Movie.all
-    
+    if params[:sort].nil? && params[:ratings].nil?
+      return @movies = Movie.all
+    elsif params[:ratings].nil?
+      #@movies = Movie.select do |a,b|
+      #  allowed[:sort] == 'Aladdin'
+      #end
+      return @movies = Moive.all 
+    else
+      #@movies = Moive.sort { |a,b| a <=> b}
+      return @movies = Moive.all
+    end
   end
 
   def new
