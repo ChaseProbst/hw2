@@ -15,13 +15,12 @@ class MoviesController < ApplicationController
     if params[:sort].nil? && params[:ratings].nil?
       @movies = Movie.all
     elsif params[:ratings].nil?
-      #@movies = Movie.select do |allowed|
-      #  if allowed[:sort] == 'G'
-      #end
-      @movies = Moive.all
+      @movies = Movie.select do |a,b|
+        allowed[:sort] == 'G'
+      end
+      #@movies = Moive.all 
     else
-      @movies = Moive.all
-      
+      @movies = Moive.sort { |a,b| a <=> b}
     end
   end
 
