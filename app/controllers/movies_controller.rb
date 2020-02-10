@@ -11,11 +11,13 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all && params[:ratings].nil?
-    if params[:sort].nil?
+    @movies = Movie.all
+    if params[:sort].nil? && params[:ratings].nil?
       @movies = Movie.all
     else params[:ratings].nil?
-      @movies = Movie.sort("@sort ASC")
+      @movies = Movie.select do |allowed|
+        if allowed[:rating] == 'G'
+      end
     end
   end
 
