@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       return @movies = Moive.all 
     else
       #@movies = Moive { |a,b| a['title'] <=> b['title']}
-      return @movies = Moive.reverse
+      return @movies = Moive.all
     end
   end
 
