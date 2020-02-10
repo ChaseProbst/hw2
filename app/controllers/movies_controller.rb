@@ -16,8 +16,10 @@ class MoviesController < ApplicationController
       @movies = Movie.all
     else params[:ratings].nil?
       @movies = Movie.select do |allowed|
-        if allowed[:rating] == 'G'
+        if allowed[:sort] == 'G'
       end
+      #@movies = Moive.all
+      
     end
   end
 
