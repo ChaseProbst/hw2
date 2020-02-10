@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
       return @movies = Moive.all
     else
       #return @blank = Moive.all.sort { |a,b| a['title'] <=> b['title']}
-      return @movies.all #= Moive.where(title: "G", status: 1 )
+      return @movies = Moive.all  #= Moive.where(title: "G", status: 1 )
     end
   end
 
