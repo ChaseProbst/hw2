@@ -12,18 +12,20 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    #@movies = Movie.all
-    if params[:sort].nil? && params[:ratings].nil?
-      return @movies = Movie.all
+    @movies = Movie.all
+    @movies = Moive.all.order(:release_date)
+    return @movies
+    #if params[:sort].nil? && params[:ratings].nil?
+    #  return @movies = Movie.all
     #elsif params[:ratings].nil?
       #@movies = Movie.select do |a,b|
       #  allowed[:sort] == 'Aladdin'
       #end
     #  return @movies = Moive.all 
-    else
+    #else
       #@movies = Moive { |a,b| a['title'] <=> b['title']}
-      return @movies = Moive.all.order(session[:sort])
-    end
+    #  return @movies = Moive.all.order(:release_date)
+    #end
   end
 
   def new
@@ -56,9 +58,11 @@ class MoviesController < ApplicationController
   
   def sort
     @movie = Movie.create!(movie_params)
+    
     @movie.select('title')
     flash[:notice] = "#{@movie.title} was successfully created."
     redirect_to movies_path
   end
+  
 
 end
