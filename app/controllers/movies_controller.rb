@@ -11,14 +11,6 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
-    @sort = params[:sort]
-    @ratings = params[:ratings] 
-    if @ratings.nil?
-      ratings = Movie.ratings 
-    else
-      ratings = @ratings.keys
-    
     
   end
 
