@@ -12,8 +12,8 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    @movies = Movie.all
-    @movies.sort_by { |obj| obj[:title] }
+    @movies = Movie.all.sort_by { |obj| obj[:title] }
+    #@movies.sort_by { |obj| obj[:title] }
     #@movies = Moive.all.order(:release_date)
     return @movies
     
