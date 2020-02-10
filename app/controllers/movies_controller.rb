@@ -18,6 +18,8 @@ class MoviesController < ApplicationController
       ratings = Movie.ratings 
     else
       ratings = @ratings.keys
+    
+    
   end
 
   def new
