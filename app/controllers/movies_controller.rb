@@ -19,10 +19,10 @@ class MoviesController < ApplicationController
       #@movies = Movie.select do |a,b|
       #  allowed[:sort] == 'Aladdin'
       #end
-      return @movies = Moive.all 
+      return @movies = Moive.all
     else
-      @movies = Moive { |a,b| a['title'] <=> b['title']}
-      return @movies
+      @movies = Moive.all.sort { |a,b| a['title'] <=> b['title']}
+      return @movies 
     end
   end
 
