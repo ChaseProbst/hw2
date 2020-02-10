@@ -21,8 +21,8 @@ class MoviesController < ApplicationController
       #end
       return @movies = Moive.all 
     else
-      @movies = Moive.sort { |a,b| a['title'] <=> b['title']}
-      return @movies = Moive.all
+      @movies = Moive { |a,b| a['title'] <=> b['title']}
+      return @movies
     end
   end
 
