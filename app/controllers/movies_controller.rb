@@ -20,8 +20,8 @@ class MoviesController < ApplicationController
       #end
       @movies = Moive.all 
     else
-      @movies = Moive.sort { |a,b| a <=> b}
-      #@movies = Moive.all
+      #@movies = Moive.sort { |a,b| a <=> b}
+      @movies = Moive.all
     end
   end
 
