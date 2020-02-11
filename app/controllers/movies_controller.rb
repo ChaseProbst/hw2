@@ -12,11 +12,11 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    #@ratings = params[:ratings].nil ? @all_ratings : params[:ratings]
+    @rated = params[:ratings].nil ? @all_ratings : params[:ratings]
     
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     @movies = Movie.all.sort_by { |obj| obj[@sortit] }
-    #where{|m| @ratings.include? m[:rating] }
+    @movies = @movies.where{|m| @ratings.include? m[:rating] }
     
     #@movies.sort_by { |obj| obj[:title] }
     #@movies = Moive.all.order(:release_date)
