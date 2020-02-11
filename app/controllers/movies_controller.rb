@@ -18,9 +18,10 @@ class MoviesController < ApplicationController
     
     #@moivies = Moive.movie_filter(@rated, @sortit)
     
-    @movies = Movie.all.sort_by { |obj| obj[@sortit] }
+    @movies = Movie.all.sort_by{ |obj| obj[@sortit] }
+    
     if not params[:ratings].nil?
-      @movies = @movies.where{ |m| @rated.keys.include? m.rating }
+      @movies = @movies.where{ |m| ['G'].keys.include? m.rating }
     end
     
     #@movies.sort_by { |obj| obj[:title] }
