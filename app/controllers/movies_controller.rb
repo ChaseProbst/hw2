@@ -12,11 +12,11 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    @rated = params[:ratings].nil ? @all_ratings : params[:ratings]
+    @rated = params[:ratings].nil? ? @all_ratings : params[:ratings]
     
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     @movies = Movie.all.sort_by { |obj| obj[@sortit] }
-    if not params[:ratings].nil
+    if not params[:ratings].nil?
       @movies = @movies.where{|m| @ratings.include? m[:rating] }
     end
     #@movies.sort_by { |obj| obj[:title] }
