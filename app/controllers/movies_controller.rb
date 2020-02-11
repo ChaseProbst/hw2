@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     
-    @moivies = Moive.movie_filter(@sortit,@rated)
+    @moivies = Moive.movie_filter(@rated, @sortit)
     
     #@movies = Movie.all.sort_by { |obj| obj[@sortit] }
     #if not params[:ratings].nil?
