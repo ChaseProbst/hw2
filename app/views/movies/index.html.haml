@@ -13,10 +13,10 @@
   %thead
     %tr
       %th{:class => ('hilite' if @sort == 'title') }
-        =link_to 'Movie Title', movies_path(:fort => 'title', :ratings => @ratings), :id => 'title_header'
-      %th Rating
+        =link_to 'Movie Title', movies_path(:sortit => 'title', :ratings => @ratings), :id => 'title_header'
+      %th "#{@sortit}"
       %th{:class => ('hilite' if @sort == 'release_date') }
-        = link_to 'Release Date', movies_path(:sort => 'release_date', :ratings => @ratings), :id => 'release_date_header'
+        = link_to 'Release Date', movies_path(:sortit => 'release_date', :ratings => @ratings), :id => 'release_date_header'
       %th More Info
   %tbody
     - @movies.each do |movie|
