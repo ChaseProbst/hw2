@@ -12,16 +12,16 @@ class MoviesController < ApplicationController
 
   def index
     @all_ratings = ['G','PG','PG-13','R']
-    @rated = params[:ratings].nil? ? @all_ratings : params[:ratings]
+    @ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     
     #@moivies = Moive.movie_filter(@rated, @sortit)
     
-    @movies = Movie.all.sort_by{ |obj| obj[@sortit] }
+    @sort = Movie.all.sort_by{ |obj| obj[@sortit] }
     
     if not params[:ratings].nil?
-      @movies = Moive.where{ |m| ['G'].keys.include? m[:rating] }
+      #@filter = Moive.where{ |m| ['G'].keys.include? m[:rating] }
     end
     
     #@movies.sort_by { |obj| obj[:title] }
