@@ -11,9 +11,9 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @g_checked = params[:rating][:G].nil ? "rating" : params[:rating][:G]
+    @g_checked = params[:rating].nil ? "rating" : "description"
     @all_ratings = ['G','PG','PG-13','R']
-    @sortit = params[:sortit].nil? ? @g_checked : params[:sortit]
+    @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     @movies = Movie.all.sort_by { |obj| obj[@sortit] }
     
     #@movies.sort_by { |obj| obj[:title] }
