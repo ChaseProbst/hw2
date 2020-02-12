@@ -20,10 +20,11 @@ class MoviesController < ApplicationController
     
     @sort = Movie.all.sort_by{ |obj| obj[@sortit] }
     
-    if not params[:ratings].nil?
-      #@filter = Moive.where{ |m| ['G'].keys.include? m[:rating] }
-    end
+    #if not params[:ratings].nil?
+    #  @filter = Moive.where{ |m| ['G'].keys.include? m[:rating] }
+    #end
     
+    #@movies = (params[:rating].nil? && params[:sortit].nil?)
     #@movies.sort_by { |obj| obj[:title] }
     #@movies = Moive.all.order(:release_date)
     
