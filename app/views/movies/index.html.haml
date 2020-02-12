@@ -3,11 +3,11 @@
 
 
 = form_tag movies_path, :method => :get do
-  Include: 
-  - @all_ratings.each do |rating, value|
+  Include:
+  - @all_ratings.each do |rating|
     = rating
-    = check_box_tag "ratings[#{rating}]", 1, value 
-  = submit_tag 'Refresh', :id => "ratings_submit"
+    = check_box_tag "ratings[#{rating}]"
+  = submit_tag 'Refresh'
 
 %table#movies.table.table-striped.col-md-12
   %thead
@@ -26,7 +26,7 @@
         %td= movie.release_date
         %td= link_to "More about #{movie.title}", movie_path(movie)
   %tbody
-    - @rating.each do |movie|
+    - @ratings.each do |movie|
       %tr
         %td= movie.key
 
