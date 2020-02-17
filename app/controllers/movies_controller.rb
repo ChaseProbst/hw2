@@ -14,12 +14,13 @@ class MoviesController < ApplicationController
     
     @order_by = :title
     @movies = Movie.order(@order_by)
+    @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     return @movies
     
     #@all_ratings = ['G','PG','PG-13','R']
     #@rated = params[:ratings].nil? ? @all_ratings : params[:ratings]
     
-    #@sortit = params[:sortit].nil? ? "rating" : params[:sortit]
+    
     
     #@moivies = Moive.movie_filter(@rated, @sortit)
     
