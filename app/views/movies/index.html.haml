@@ -4,8 +4,9 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      %th Movie Title
-      %th Rating
+      %th{:class => ('hilite' if @sortit == 'title') }
+        =link_to 'Movie Title', movies_path(:sortit => 'title', :ratings => @ratings), :id => 'title_header'
+      %th "#{@sortit}"
       %th Release Date
       %th More Info
   %tbody
