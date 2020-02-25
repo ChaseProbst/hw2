@@ -13,6 +13,7 @@ class MoviesController < ApplicationController
   def index
     
     @order_by = :title
+    @all_ratings = ['G','PG','PG-13','R']
     @ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     @movies = Movie.order(@sortit)
