@@ -27,8 +27,8 @@ class MoviesController < ApplicationController
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
     #@movies = Movie.order(@sortit)
     #@movies = Movie.where( rating: @ratingread )
-    @moives = Moive.order(@sortit)
-    @moives = @movies.ratedscope(@ratingread)
+    #@moives = Moive.order(@sortit)
+    @moives = Moive.ratedscope(@ratingread)
     return @movies
     
     #@all_ratings = ['G','PG','PG-13','R']
