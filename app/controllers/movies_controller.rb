@@ -16,8 +16,11 @@ class MoviesController < ApplicationController
     @order_by = :title
     @all_ratings = ['G','PG','PG-13','R']
     @test_ratings = ['G','PG','PG-13','R']
+    
     session[:ratings] = session[:ratings].nil? ? ['G','PG','PG-13','R'] : session[:ratings]
-    @ratingread = params[:ratings].nil? ? @test_ratings : params[:ratings].keys
+    @ratingread = params[:ratings].nil? ? session[:ratings] : params[:ratings].keys
+    session[:ratings] = params[:ratings].nil? ? session[:ratings] : @ratingread
+    
     logger.debug(@ratingread)
     #@ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     puts "ratings {#ratings} "
