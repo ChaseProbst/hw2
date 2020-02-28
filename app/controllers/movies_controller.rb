@@ -15,11 +15,12 @@ class MoviesController < ApplicationController
     
     @order_by = :title
     @all_ratings = ['G','PG','PG-13','R']
+    @test_ratings = ['G','PG','PG-13','R']
     @ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     puts "ratings {#ratings} "
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
-    @movies = Movie.order(@sortit)
-    
+    #@movies = Movie.order(@sortit)
+    @movies = Movie.where( rating: @test_ratings )
     return @movies
     
     #@all_ratings = ['G','PG','PG-13','R']
