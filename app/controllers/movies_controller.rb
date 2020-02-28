@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     
     @order_by = :title
     @all_ratings = ['G','PG','PG-13','R']
-    #@test_ratings = ["G","PG","PG-13"]
+    @test_ratings = ["G","PG","PG-13"]
     @ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     puts "ratings {#ratings} "
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
