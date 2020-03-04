@@ -25,8 +25,8 @@ class MoviesController < ApplicationController
     #@ratings = params[:ratings].nil? ? @all_ratings : params[:ratings]
     puts "ratings {#ratings} "
     @sortit = params[:sortit].nil? ? "rating" : params[:sortit]
-    @movies = Movie.order(@sortit)
-    @movies = Movie.where( rating: @ratingread )
+    #@movies = Movie.order(@sortit)
+    @movies = Movie.where( rating: @ratingread ).order(@sortit)
     #@moives = Moive.order(@sortit)
     #@moives = Moive.ratedscope(@ratingread)
     return @movies
